@@ -113,7 +113,7 @@ def snapshot(zone, snapshot_name):
                                 difference = today - snapshot_date
                                 timeAgo = now - snapshot_timestamp
                                 logging.info(f"Last backup was {timeAgo} ago")
-                                if difference == timedelta(days=1):
+                                if difference == timedelta(days=0):
                                         logging.info(f"Skipping backup creation since the latest backup is too recent") 
 
                                 else:
