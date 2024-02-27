@@ -54,25 +54,6 @@ def latest_snapshot(snapshots_client, diskURL, projectId):
     else:
         return "Never"
     
-    # def latest_snapshot(snapshots_client, diskURL, projectId):
-    # snapshots = fetch_snapshots(projectId, snapshots_client)
-    # lastest = None
-    # snapshot_timestamps = []
-    # for snapshot in snapshots:
-    #     if snapshot.source_disk == diskURL:
-    #         snapshot_timestamp = datetime.fromisoformat(snapshot.creation_timestamp)
-    #         if latest is None or snapshot_timestamp > latest:
-    #         # snapshot_timestamps.append(snapshot_timestamp)
-    #             latest = 
-
-    # snapshot_timestamps.sort(reverse =True)
-
-    # if len(snapshot_timestamps) != 0:
-    #     latest = snapshot_timestamps[0]
-    #     return latest
-    # else:
-    #     return "Never"
-
 # Deletes named snapshot with error handling in case name of previously deleted snapshot is passed
 def delete_named_snapshot(project_id, snapshot_name, snapshot_client):  
     request = compute_v1.DeleteSnapshotRequest(
