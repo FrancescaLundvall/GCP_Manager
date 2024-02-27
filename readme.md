@@ -11,7 +11,7 @@ This Python application allows users to use the command line to display instance
 - Create virtual environment in project root
 - Activate virtual environment 
 - Install requirements from requirements.txt with `pip install -r requirements.txt`
-- Add your credentials json to a folder in project route and 
+- Add your credentials json to a folder in project route 
 - Update `path_to_credentials` and `disk_id` in configuration.py
 
 ### Scripts
