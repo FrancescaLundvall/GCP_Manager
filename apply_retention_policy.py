@@ -63,7 +63,7 @@ def apply_retention_policy(zone):
 
 
     # Creating a dict of the most recent snapshot for each day for the past seven days based on the weekday value
-    # snapshots_by_day is necessarily sorted in reverse chron order, and dicts do not allow key duplication, therefore the first of each weekday value processed must also be the most recent
+    # snapshots_by_day is necessarily sorted in order, and dicts do not allow key duplication, therefore the first of each weekday value processed must also be the most recent
     snapshots_to_keep_daily = {t[1]: t for t in snapshots_by_day}
     
 
@@ -71,13 +71,13 @@ def apply_retention_policy(zone):
          logging.info(f"Found {len(snapshots_by_week)} backups made more than 7 days ago")
 
     # Creating a dict of the most recent snapshot for each week for snapshots older than past seven days
-    # snapshots_by_week is necessarily sorted in reverse chron order, and dicts do not allow key duplication, therefore the first of each weekly value processed must also be the most recent
+    # snapshots_by_week is necessarily sorted in order, and dicts do not allow key duplication, therefore the first of each weekly value processed must also be the most recent
     snapshots_to_keep_weekly = {t[1]: t for t in snapshots_by_week}
 
     # Combining arrays for easier filtering
     to_keep = [t[0] for t in snapshots_to_keep_daily.values()] + [t[0] for t in snapshots_to_keep_weekly.values()]
     
-    # For each snapshot that is in snapshots_sorted but NOT in to_keep, add it to delete
+    # For each snapshot that is in snapshots_sorted but NOT in to_keep, add it to to_delete
     # This is because all valid snapshots are in to_keep, therefore any invalid ones will not be in it
     to_delete = [snapshot for snapshot in snapshots_sorted if snapshot not in to_keep]
     
