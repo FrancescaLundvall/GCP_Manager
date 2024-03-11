@@ -79,7 +79,7 @@ def apply_retention_policy(zone):
     # This is because all valid snapshots are in to_keep, therefore any invalid ones will not be in it
     to_delete = [snapshot for snapshot in snapshots_sorted if snapshot not in to_keep]
     
-    # Final check that the total number of entries in to_keep and to_delete is equal to the total entries in snnapshots_sorted before deleting all invalid snapshots
+    # Final check that the total number of entries in to_keep and to_delete is equal to the total entries in snapshots_sorted before deleting all invalid snapshots
     if snapshots_length > (len(to_delete)+len(to_keep)):
             logging.error(f'ERROR: Total number of snapshots and filtered results totals do not match up, not all snapshots included in filtering')
             return None
