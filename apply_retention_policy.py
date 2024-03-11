@@ -14,8 +14,6 @@ logging.basicConfig(level=f"logging.{LOG_LEVEL}", format='%(asctime)s - %(leveln
 # When removing backups that don’t match the retention policy, keep the most recent backup that still fits.
 def apply_retention_policy(zone):
 
-    diks_id = disk_id
-
     # Create InstancesClient and SnapshotsClient
     instances_client, snapshot_client, project_id = get_clients_and_projectID()
     snapshots_by_day = []
